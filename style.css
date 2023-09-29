@@ -1,0 +1,14 @@
+div.sketchpad {
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+div.grid-row, div.grid-cell {
+    flex: auto;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
