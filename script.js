@@ -66,18 +66,31 @@ slider.addEventListener("change", (e) => {
     createGrids(+e.target.value);
 });
 
-// Enable Brush If clicked on skethcboard
+// Enable Brush, If clicked on sketch board
 sketchpad.addEventListener("pointerdown", (e) => {
     if (e.target.className.includes("grid-cell")) e.target.style.backgroundColor = "black";
     isBrushEnabled = true;
 });
 
+// Disable brush if mouse or finger removed
 document.addEventListener("pointerup", () => isBrushEnabled = false);
 
+// Draw when pointer moves
 sketchpad.addEventListener("pointermove", (e) => {
     let targetPixel;
 
+    /**
+     * For mobile devices
+     * Mobile pointer event don't exactly work like computer's. When using pointer over 
+     * I was able to get only that div.grid-cell where I touched in the beginning in e.target
+     * To solve this, I am getting the div.grid-cell from current finger position.
+     * Thanks to this video: https://www.youtube.com/watch?v=MhUCYR9Tb9c
+     */
     if (e.pointerType === "touch") targetPixel = document.elementFromPoint(e.pageX, e.pageY);
+    /**
+     * Else for computer devices, 
+     * e.target works completely fine.
+     */
     else targetPixel = e.target;
 
     if (isBrushEnabled && targetPixel.className.includes("grid-cell")) targetPixel.style.backgroundColor = "black";
