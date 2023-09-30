@@ -6,6 +6,9 @@ const slider = document.querySelector(".slider");
 // HTML has span first and Input later
 const [gridColSizeSpan, gridRowSizeInput] = document.querySelectorAll(".grid-size");
 
+// var to store if brush mouse is clicked then dragged on sketch board
+let isBrushEnabled = false;
+
 /**
  * Creates grid on chosen size
  * @param {number} gridSize
@@ -26,6 +29,10 @@ function createGrids(gridSize) {
         sketchpad.appendChild(gridRow.cloneNode(true));
     }
 }
+
+// Create grids by default
+createGrids(DEFAULT_GRID_SIZE);
+
 
 /**
  * Changes value of span.grid-size and slider so that they all are in sync
@@ -59,5 +66,19 @@ slider.addEventListener("change", (e) => {
     createGrids(+e.target.value);
 });
 
-// Create grids by default
-createGrids(DEFAULT_GRID_SIZE);
+// Enable Brush If clicked on skethcboard
+sketchpad.addEventListener("pointerdown", (e) => {
+    if (e.target.className.includes("grid-cell")) e.target.style.backgroundColor = "black";
+    isBrushEnabled = true;
+});
+
+document.addEventListener("pointerup", () => isBrushEnabled = false);
+
+sketchpad.addEventListener("pointermove", (e) => {
+    let targetPixel;
+
+    if (e.pointerType === "touch") targetPixel = document.elementFromPoint(e.pageX, e.pageY);
+    else targetPixel = e.target;
+
+    if (isBrushEnabled && targetPixel.className.includes("grid-cell")) targetPixel.style.backgroundColor = "black";
+});

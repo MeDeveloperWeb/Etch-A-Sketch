@@ -1,9 +1,12 @@
 div.sketchpad {
-    width: 900px;
-    height: 900px;
+    width: 500px;
+    height: 500px;
     border: 2px solid black;
     display: flex;
     flex-direction: column;
+    padding: 0;
+    /*Onlu allow 2 finger zoom in sketch board*/
+    touch-action:pinch-zoom;
 }
 
 div.grid-row, div.grid-cell {
@@ -11,15 +14,14 @@ div.grid-row, div.grid-cell {
     display: flex;
     height: 100%;
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 div.grid-cell {
     box-sizing: border-box;
     border-left: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-div.grid-row {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .slide-container {
