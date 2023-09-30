@@ -1,6 +1,6 @@
 div.sketchpad {
-    width: 500px;
-    height: 500px;
+    width: 900px;
+    height: 900px;
     border: 2px solid black;
     display: flex;
     flex-direction: column;
@@ -11,4 +11,45 @@ div.grid-row, div.grid-cell {
     display: flex;
     height: 100%;
     width: 100%;
+}
+
+div.grid-cell {
+    box-sizing: border-box;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+div.grid-row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);;
+}
+
+.slide-container {
+    display: flex;
+}
+
+.slide-container .grid-size-txt {
+    display: flex;
+    width: 5rem;
+    border: 2px solid;
+}
+
+.slide-container .grid-size, .slide-container .grid-col-size{
+    flex: auto;
+    width: 100%;
+    border: 0px;
+}
+
+.slide-container .grid-col-size {
+    background-color: rgb(228, 228, 228);
+    text-align: end;
+}
+
+.slide-container .grid-size {
+    padding-block: 1px;
+    padding-inline: 2px;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-radius: 5px;
 }
