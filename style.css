@@ -1,3 +1,11 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
 div.sketchpad {
     width: min(960px, 90vh, 90vw);
     height: min(960px, 90vh, 90vw);
@@ -18,10 +26,16 @@ div.grid-row, div.grid-cell {
     padding: 0;
 }
 
-div.grid-cell {
+div.sketch-pad-with-grid:not(.dark-bg) div.grid-cell {
     box-sizing: border-box;
     border-left: 1px solid rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+div.sketch-pad-with-grid.dark-bg div.grid-cell {
+    box-sizing: border-box;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .slide-container {
@@ -58,12 +72,11 @@ input:focus {
 
 div.tools-container {
     width: min(960px, 90vh, 90vw);
-    height: 4rem;
+    height: 3.5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border: 2px solid;
-    padding: 0,5rem 1rem;
 }
 
 div.tools-container img{
@@ -71,7 +84,7 @@ div.tools-container img{
 }
 
 .color-select {
-    width: 4rem;
+    width: 3.5rem;
     height: 80%;
     /*https://stackoverflow.com/a/63859111*/
     -webkit-mask:url(media/color-picker.png) center/contain no-repeat;
@@ -79,6 +92,11 @@ div.tools-container img{
     background-blend-mode: darken;
     background-image: url(media/color-picker.png);
     background-color: black;
+}
+
+.bg-color-select {
+    width: 3.5rem;
+    height: 80%;
 }
 
 .tool {
