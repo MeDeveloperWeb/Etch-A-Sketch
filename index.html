@@ -11,6 +11,17 @@
     <div class="sketchpad">
 
     </div>
+    <div class="tools-container">
+        <img src="media/pen.png" alt="Pen" title="Pen" class="tool">
+        <img src="media/brush.png" alt="Brush" title="Brush" class="tool">
+        <img src="media/eraser.png" alt="Eraser" title="Eraser" class="tool">
+        <img src="media/delete.png" alt="Delete" title="Delete" class="tool">
+        <div class="color-select tool" title="Color Picker"></div>
+        <img src="media/rainbow-color.png" alt="Random Color" title="Random Color" class="tool">
+        <!-- <img src="media/color-picker.png" alt="Color" class="color-select"> -->
+        
+        <input type="color" id="color-picker" style="display: none;">
+    </div>
     <div class="slide-container">
         Grid size:
         <input type="range" min="1" max="100" value="50" class="slider">
@@ -18,7 +29,6 @@
             <span class="grid-col-size"><span class="grid-size">50</span>x</span>
             <input type="number" min="1" max="100" value="50" class="grid-size">
         </div>
-
     </div>
 </body>
 </html>

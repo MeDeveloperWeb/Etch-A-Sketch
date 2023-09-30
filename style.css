@@ -1,11 +1,11 @@
 div.sketchpad {
-    width: 500px;
-    height: 500px;
+    width: min(960px, 90vh, 90vw);
+    height: min(960px, 90vh, 90vw);
     border: 2px solid black;
     display: flex;
     flex-direction: column;
     padding: 0;
-    /*Onlu allow 2 finger zoom in sketch board*/
+    /*Only allow 2 finger zoom in sketch board*/
     touch-action:pinch-zoom;
 }
 
@@ -54,4 +54,37 @@ div.grid-cell {
 input:focus {
     outline: none;
     border-radius: 5px;
+}
+
+div.tools-container {
+    width: min(960px, 90vh, 90vw);
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid;
+    padding: 0,5rem 1rem;
+}
+
+div.tools-container img{
+    height: 80%;
+}
+
+.color-select {
+    width: 4rem;
+    height: 80%;
+    /*https://stackoverflow.com/a/63859111*/
+    -webkit-mask:url(media/color-picker.png) center/contain no-repeat;
+    mask:url(media/color-picker.png) center/contain no-repeat;
+    background-blend-mode: darken;
+    background-image: url(media/color-picker.png);
+    background-color: black;
+}
+
+.tool {
+    cursor: pointer;
+}
+
+.tool:hover {
+    height: 100%;
 }
