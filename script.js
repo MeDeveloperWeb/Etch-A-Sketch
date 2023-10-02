@@ -142,7 +142,7 @@ function gridDrawingListeners() {
          * For some reason this event triggers for short duration touches only
          * (?? It is the property maybe??)
          */
-        if (e.target.className.includes("grid-cell")) draw(e.target, sketchMode);
+        if (e.target.className === "grid-cell") draw(e.target, sketchMode);
         isDrawingEnabled = true;
     });
 
