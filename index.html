@@ -5,42 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
     <title>Etch A Sketch</title>
 </head>
 <body ondragstart="return false;" ondrop="return false;">
-    <div class="sketchpad-container">
-        <div class="sketchpad">
-
-        </div>
-        <div class="tools-container">
-            <img id="pen" src="media/pen.png" alt="Pen" title="Pen" class="tool">
-            <img id="brush" src="media/brush.png" alt="Brush" title="Brush" class="tool">
-            <img id="eraser" src="media/eraser.png" alt="Eraser" title="Eraser" class="tool">
-            <img id="delete-all" src="media/delete.png" alt="Delete" title="Delete" class="tool">
-            <div id="color-select" class="tool color-select" title="Color Picker"></div>
-            <img id="random" src="media/rainbow-color.png" alt="Random Color" title="Random Color" class="tool color-select">
-            <div id="bg-color-select" title="Canvas Color" class="tool bg-color-select">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"><path d="M20 14c-.092.064-2 2.083-2 3.5 0 1.494.949 2.448 2 2.5.906.044 2-.891 2-2.5 0-1.5-1.908-3.436-2-3.5zM9.586 20c.378.378.88.586 1.414.586s1.036-.208 1.414-.586l7-7-.707-.707L11 4.586 8.707 2.293 7.293 3.707 9.586 6 4 11.586c-.378.378-.586.88-.586 1.414s.208 1.036.586 1.414L9.586 20zM11 7.414 16.586 13H5.414L11 7.414z"/></svg>
+    <header>
+        Etch-A-Dream
+    </header>
+    <main>
+        <div class="sketchpad-container">
+            <div class="options-container">
+                <div class="grid-view-container">
+                    <img src="media/eye.svg" alt="Show Grid" id="grid-lines-checkbox" height="24px">
+                </div>
+                <div class="slide-container">
+                    <input type="range" min="1" max="100" value="50" class="slider">
+                    <div class="grid-size-txt">
+                        <span class="grid-col-size"><span class="grid-size">50</span>x</span>
+                        <input type="number" min="1" max="100" value="50" class="grid-size">
+                    </div>
+                </div>
+                <div>
+                </div>
             </div>
-            <img id="move" src="media/Picol-Picol-Move.svg" alt="Move" class="tool" title="Move">
-            <!-- <img src="media/color-picker.png" alt="Color" class="color-select"> -->
-            
-            <input type="color" value="#000000" id="color-picker" style="display: none;">
-            <input type="color" value="#ffffff" id="bg-color-picker" style="display: none;">
-        </div>
-    </div>
-    <div class="options-container">
-        <div class="slide-container">
-            Grid size:
-            <input type="range" min="1" max="100" value="50" class="slider">
-            <div class="grid-size-txt">
-                <span class="grid-col-size"><span class="grid-size">50</span>x</span>
-                <input type="number" min="1" max="100" value="50" class="grid-size">
+            <div class="sketchpad">
+    
+            </div>
+            <div class="tools-container">
+                <img id="pen" src="media/pen.svg" alt="Pen" title="Pen" class="tool">
+                <img id="brush" src="media/brush.svg" alt="Brush" title="Brush" class="tool">
+                <img id="eraser" src="media/eraser.svg" alt="Eraser" title="Eraser" class="tool">
+                <img id="delete-all" src="media/delete.svg" alt="Delete" title="Delete" class="tool">
+                <div id="color-select" class="tool color-select" title="Color Picker"></div>
+                <img id="random" src="media/rainbow-color.png" alt="Random Color" title="Random Color" class="tool color-select">
+                <img id="bg-color-select" src="media/fill.svg" title="Canvas Color" class="tool bg-color-select">
+                
+                <input type="color" value="#000000" id="color-picker" style="display: none;">
+                <input type="color" value="#ffffff" id="bg-color-picker" style="display: none;">
             </div>
         </div>
-        <div>
-            <input type="checkbox" id="grid-lines-checkbox"><label for="grid-lines-checkbox">Show Grid Lines</label>
-        </div>
-    </div>
+    </main>
 </body>
 </html>

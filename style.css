@@ -1,20 +1,62 @@
 body {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    background-image: url(media/wave.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: bottom;
+    background-color: rgba(141, 238, 96, 0.3);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem 16px;
+    background-color: inherit;
+    box-shadow: 0 2px 4px 4px rgba(128, 128, 128, 0.075);
+    backdrop-filter: blur(5px);
+    width: 100vw;
+    margin: 0;
+    font-size: 1.5rem;
+    font-family: 'Pixelify Sans', cursive;
+    margin-bottom: 2px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+}
+
+div.sketchpad-container {
+    border: 2px solid;
+    padding: 5px;
+    border-radius: 10px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    overflow: hidden;
+    background-color: rgba(59, 128, 124, 0.5);
+    align-self: center;
 }
 
 
 div.sketchpad {
-    width: min(960px, 90vh, 90vw);
-    height: min(960px, 90vh, 90vw);
+    width: min(960px, 80vh, 90vw);
+    height: min(960px, 80vh, 90vw);
     border: 2px solid black;
     display: flex;
     flex-direction: column;
     padding: 0;
     /*Only allow 2 finger zoom in sketch board*/
     touch-action:pinch-zoom;
+    background-color: white;
 }
 
 div.grid-row, div.grid-cell {
@@ -38,6 +80,16 @@ div.sketch-pad-with-grid.dark-bg div.grid-cell {
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+div.options-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+}
+
+#grid-lines-checkbox {
+    cursor: pointer;
+}
 .slide-container {
     display: flex;
 }
@@ -46,6 +98,8 @@ div.sketch-pad-with-grid.dark-bg div.grid-cell {
     display: flex;
     width: 5rem;
     border: 2px solid;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .slide-container .grid-size, .slide-container .grid-col-size{
@@ -71,15 +125,15 @@ input:focus {
 }
 
 div.tools-container {
-    width: min(960px, 90vh, 90vw);
-    height: 3.5rem;
+    width: min(960px, 80vh, 90vw);
+    height: 3rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 2px solid;
+    padding: 10px 5px;
 }
 
-div.tools-container img{
+div.tools-container > *{
     height: 80%;
 }
 
@@ -87,16 +141,11 @@ div.tools-container img{
     width: 3.5rem;
     height: 80%;
     /*https://stackoverflow.com/a/63859111*/
-    -webkit-mask:url(media/color-picker.png) center/contain no-repeat;
-    mask:url(media/color-picker.png) center/contain no-repeat;
+    -webkit-mask:url(media/color-picker.svg) center/contain no-repeat;
+    mask:url(media/color-picker.svg) center/contain no-repeat;
     background-blend-mode: darken;
-    background-image: url(media/color-picker.png);
+    background-image: url(media/color-picker.svg);
     background-color: black;
-}
-
-.bg-color-select {
-    width: 3.5rem;
-    height: 80%;
 }
 
 .tool {
