@@ -238,7 +238,7 @@ function sketchToolListeners() {
         if (el.id.length < 7) el.onclick = () => sketchMode = el.id;
     });
 
-    toolBar.querySelector("#delete-all").onclick = () => createNewGrids(slider.value);
+    toolBar.querySelector("#delete-all").onclick = () => createNewGrids(currentGridSize);
 }
 /**
  * Set SketchPad Dimensions in Pixel
@@ -248,11 +248,9 @@ function sketchToolListeners() {
 setSketchPadDimensions();
 
 // Create grids by default
-createNewGrids(currentGridSize=DEFAULT_GRID_SIZE);
+createNewGrids(currentGridSize = DEFAULT_GRID_SIZE);
 
 // Bind all required elements with event listeners
 gridDrawingListeners();
 gridManipulatorListeners();
 sketchToolListeners();
-
-
