@@ -169,13 +169,13 @@ function gridDrawingListeners() {
         if (e.touches.length > 1) return;
         let touch = e.touches[0];
         let targetPixel = document.elementFromPoint(touch.pageX, touch.pageY);
-        draw(targetPixel, sketchMode);
+        if (targetPixel.className === "grid-cell") draw(targetPixel, sketchMode);
 
     })
 
     //Drawing when mouse moves
     sketchpad.addEventListener("mousemove", (e) => {
-        if (isDrawingEnabled && e.target.className.includes("grid-cell")) draw(e.target, sketchMode);
+        if (isDrawingEnabled && e.target.className === "grid-cell") draw(e.target, sketchMode);
     });
 }
 
